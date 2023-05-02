@@ -1,32 +1,13 @@
-# Prerequisites
-*.d
+*~
 
-# Compiled Object files
-*.slo
-*.lo
-*.o
-*.obj
+*build*/
 
-# Precompiled Headers
-*.gch
-*.pch
+*doxygen*/
 
-# Compiled Dynamic libraries
-*.so
-*.dylib
-*.dll
+.idea/
+.clion.source.upload.marker
 
-# Fortran module files
-*.mod
-*.smod
+artifacts/
+cppcheck*.log
 
-# Compiled Static libraries
-*.lai
-*.la
-*.a
-*.lib
-
-# Executables
-*.exe
-*.out
-*.app
+./DoxygenDocumentation
