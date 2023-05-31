@@ -16,3 +16,20 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 # Install the toolchain for AARCH64 Linux
 RUN apt-get update && apt-get -y install g++-aarch64-linux-gnu
+
+# SSH
+RUN apt update \
+    && apt -y install openssh-server \
+    && rm -rf /var/lib/apt/lists/* 
+RUN mkdir -p /var/run/sshd
+
+# authorize SSH connection with root account
+# RUN sed -i '/^#/!s/PermitRootLogin .*/PermitRootLogin yes/' /etc/ssh/sshd_config
+RUN echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
+# RUN service ssh start
+EXPOSE 22/tcp
+
+# change password root
+RUN echo "root:password"|chpasswd
+
+CMD ["/usr/sbin/sshd", "-D"]
