@@ -1,4 +1,3 @@
 # DevContainerApplication
 
-Example C++ application for aarch64 Linux platform with Dev Container. 
-
+Example C++ application for measuring performance with Dev Container.
