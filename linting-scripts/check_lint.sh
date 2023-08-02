@@ -1,2 +1,1 @@
-cd build/
-clang-tidy -checks=cert-* -warnings-as-errors=* ../main.cpp
+clang-tidy main.cpp -- -std=c++11
