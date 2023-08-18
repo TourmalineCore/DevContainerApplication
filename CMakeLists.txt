@@ -1,7 +1,8 @@
 cmake_minimum_required(VERSION 3.13)
 include(CMakePrintHelpers)
 
-project(DevContainerApplication)
+set(PROJECT_NAME "DevContainerApplication")
+project(${PROJECT_NAME})
 
 # set(CMAKE_SYSTEM_NAME Linux)
 # set(CMAKE_SYSTEM_PROCESSOR aarch64)
@@ -18,7 +19,7 @@ project(DevContainerApplication)
 
 # cmake_print_variables(CMAKE_CXX_COMPILER)
 
-add_executable(DevContainerApplication-temp main.cpp)
+add_executable(DevContainerApplicationApp main.cpp)
 
 ##
 ## TESTS

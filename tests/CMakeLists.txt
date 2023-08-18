@@ -28,9 +28,21 @@ set(SOURCES
 # create a executable with our unit tests
 add_executable(${TEST_TARGET} run_unit_tests.cpp ${SOURCES})
 
+target_include_directories(${TEST_TARGET} PRIVATE
+        ${CMAKE_CURRENT_SOURCE_DIR}
+)
+
+target_link_libraries(
+        ${TEST_TARGET}
+        PRIVATE
+        -static-libgcc -static-libstdc++
+        gtest_main
+        rt
+        gcov
+)
 
 gtest_discover_tests(${TEST_TARGET}
         XML_OUTPUT_DIR unit-tests-reports
-        # WORKING_DIRECTORY ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}
+        WORKING_DIRECTORY ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}
         )
 
