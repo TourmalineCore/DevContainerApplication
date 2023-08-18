@@ -1,4 +1,0 @@
-name: 'Start devcontainer'
-runs:
-  using: 'docker'
-  image: 'Dockerfile'

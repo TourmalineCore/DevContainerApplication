@@ -23,5 +23,3 @@ RUN apt-get update && apt-get -y install g++-aarch64-linux-gnu
 COPY linting-scripts/check_lint.sh /linting-scripts/check_lint.sh
 
 RUN chmod +x /linting-scripts/check_lint.sh
-
-CMD ["/bin/sh", "/linting-scripts/check_lint.sh"]
