@@ -13,8 +13,8 @@ jobs:
         
       - name: Check Linting
         run: |
-          chmod +x /scripts/check_lint.sh
-          /scripts/check_lint.sh
+          chmod +x ./scripts/check_lint.sh
+          ./scripts/check_lint.sh
   tests:
     runs-on: ubuntu-latest
     container:
@@ -25,5 +25,5 @@ jobs:
         
       - name: Run unit-tests
         run: |
-          chmod +x /scripts/run_unit_tests.sh
-          /scripts/run_unit_tests.sh
+          chmod +x ./scripts/run_unit_tests.sh
+          ./scripts/run_unit_tests.sh

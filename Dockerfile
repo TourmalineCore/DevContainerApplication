@@ -20,5 +20,5 @@ RUN apt-get update && apt-get install -y clang-tidy
 # Install the toolchain for AARCH64 Linux
 RUN apt-get update && apt-get -y install g++-aarch64-linux-gnu
 
-COPY scripts/check_lint.sh /scripts/check_lint.sh
-COPY scripts/run_unit_tests.sh /scripts/run_unit_tests.sh
+# COPY scripts/check_lint.sh /scripts/check_lint.sh
+# COPY scripts/run_unit_tests.sh /scripts/run_unit_tests.sh
