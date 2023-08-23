@@ -3,6 +3,19 @@ name: 'Check linting'
 on: push
 
 jobs:
+  build:
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/tourmalinecore/dev-container/dev-container-app:latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+        
+      - name: Build project
+        run: |
+          chmod +x ./scripts/configure_and_build.sh
+          ./scripts/configure_and_build.sh
+
   linting:
     runs-on: ubuntu-latest
     container:
@@ -19,6 +32,7 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: ghcr.io/tourmalinecore/dev-container/dev-container-app:latest
+    needs: [build]
     steps:
       - name: Checkout
         uses: actions/checkout@v1
@@ -26,5 +40,5 @@ jobs:
       - name: Run unit-tests
         run: |
           chmod +x ./scripts/run_unit_tests.sh
-          chmod +x ./build 
+          chmod +x ./cmake-build 
           ./scripts/run_unit_tests.sh
