@@ -16,6 +16,11 @@ jobs:
           chmod +x ./scripts/configure_and_build.sh
           ./scripts/configure_and_build.sh
 
+      - uses: actions/upload-artifact@master
+        with:
+          name: build-artifact
+          path: ./cmake-build
+
   linting:
     runs-on: ubuntu-latest
     container:
@@ -28,6 +33,7 @@ jobs:
         run: |
           chmod +x ./scripts/check_lint.sh
           ./scripts/check_lint.sh
+
   tests:
     runs-on: ubuntu-latest
     container:
@@ -36,9 +42,15 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v1
-        
+      
+      - uses: actions/download-artifact@master
+        with:
+          name: build-artifact
+          path: ./cmake-build
+
       - name: Run unit-tests
         run: |
           chmod +x ./scripts/run_unit_tests.sh
-          chmod +x ./cmake-build 
+          chmod +x ./cmake-build
+          chmod +x ./cmake-build/tests/DevContainerApplication_unit_tests
           ./scripts/run_unit_tests.sh
