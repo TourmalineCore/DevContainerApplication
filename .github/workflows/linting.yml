@@ -26,4 +26,5 @@ jobs:
       - name: Run unit-tests
         run: |
           chmod +x ./scripts/run_unit_tests.sh
+          chmod +x ./build 
           ./scripts/run_unit_tests.sh
