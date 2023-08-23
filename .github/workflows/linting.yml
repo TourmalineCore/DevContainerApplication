@@ -3,7 +3,7 @@ name: 'Check linting'
 on: push
 
 jobs:
-  tests:
+  linting:
     runs-on: ubuntu-latest
     container:
       image: ghcr.io/tourmalinecore/dev-container/dev-container-app:latest
@@ -13,4 +13,15 @@ jobs:
         
       - name: Check Linting
         run: |
-          /linting-scripts/check_lint.sh
+          /scripts/check_lint.sh
+  tests:
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/tourmalinecore/dev-container/dev-container-app:latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+        
+      - name: Run unit-tests
+        run: |
+          /scripts/run_unit_tests.sh 
